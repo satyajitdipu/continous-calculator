@@ -1,0 +1,24 @@
+import re
+print("magical calculter")
+print("type quit to exit")
+previous=0
+run=True
+def perfromMath():
+    global run
+    global previous
+    equcation=""
+    if previous==0:
+        equcation=input("enter a equcation")
+    else:
+        equcation=input(str(previous))
+    if equcation=='quit':
+        run=False
+    else:
+        equcation=re.sub('[a-z,A-Z,.:()" "]','',equcation)
+        if previous==0:
+            previous=eval(equcation)
+        else:
+            previous=eval(str(previous)+equcation)   
+        print("you type",previous)
+while run:
+    perfromMath()
